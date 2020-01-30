@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    :root {
+    --opacity:1;
+    }
+    .container{
+      text-align: center;
+    }
+    img {
+      opacity:var(--opacity);
+    }
+
+  </style>
+  <div class="container">
+    <div>
+      <label>image opacity</label>
+      <input type="range" name="opacity" data-opacity="px" min="0" max="1" value="1"></input>
+    </div>
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
+  </div>
+
+  <script>
+    handleChange = (e)=> {
+      const prefix=e.currentTarget.dataset;//px
+      const value=e.currentTarget.value;
+      console.log(e.currentTarget)
+      document.documentElement.style.setProperty(`--${e.currentTarget.name}`,value)
+
+    }
+    const inputs = document.querySelectorAll("input")
+    inputs.forEach(input => input.addEventListener("change", handleChange));
+  </script>
+</body>
+</html>
