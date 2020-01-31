@@ -152,9 +152,53 @@
 
      .cards {
       box-shadow: 5px 5px 10px #ececeb;
-      padding: 25px;
+      padding: 35px;
       margin: 15px;
+      color:#5d5b6a;
+      width: 355px;
+     height: 339px;
+     background-color: transparent;
      }
+
+     h2:after {
+      content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 20%; /* Change this to whatever width you want. */
+    padding-top: 10px; /* This creates some space between the element and the border. */
+    border-bottom: 1px solid #cccccc; /* This creates the border. Replace black with whatever color you want. */
+     }
+
+     .flip-box-inner {
+       position: relative;
+       transition: transform 0.8s;
+       width:100%;
+       height:100%;
+       transform-style: preserve-3d;
+     }
+
+     .cards:hover .flip-box-inner{
+      transform: rotateY(180deg);
+      }
+      .flip-box-front {
+        width: 100%;
+        height:100%;
+        position:absolute;
+        backface-visibility: hidden;
+      }
+
+      .flip-box-back {
+        position:absolute;
+        transform:rotateY(180deg);
+        width:100%;
+        height:100%;
+        backface-visibility: hidden;
+      }
+
+      .flip-box-back > img {
+        width:355px;
+        height:339px;
+      }
 
 
   </style>
@@ -191,36 +235,36 @@
       <div class="cards">
         <div class="flip-box-inner">
           <div class='flip-box-front'>
-            <h2>What's up</h2>
+            <h2 style="color:#393e46">What's up</h2>
             <p>What is Lorem Ipsum?
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
           </div>
           <div class="flip-box-back">
-            <img scr="https://images.unsplash.com/photo-1576420470368-022a83904229?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
+            <img src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"/>
           </div>
         </div>
       </div>
        <div class="cards">
           <div class="flip-box-inner">
           <div class='flip-box-front'>
-            <h2>Weekly news</h2>
+            <h2 style="color:#393e46">Weekly news</h2>
             <p>What is Lorem Ipsum?
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
           </div>
           <div class="flip-box-back">
-            <img scr="https://images.unsplash.com/photo-1576420470368-022a83904229?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
+            <img src="https://images.unsplash.com/photo-1489278353717-f64c6ee8a4d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
           </div>
         </div>
       </div>
        <div class="cards">
           <div class="flip-box-inner">
           <div class='flip-box-front'>
-            <h2>Join us now!</h2>
+            <h2 style="color:#393e46">Join us now!</h2>
             <p>What is Lorem Ipsum?
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
           </div>
           <div class="flip-box-back">
-            <img scr="https://images.unsplash.com/photo-1576420470368-022a83904229?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
+            <img src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=879&q=80" />
           </div>
         </div>
       </div>
