@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Domine&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
@@ -79,13 +80,20 @@
       100%{opacity:1;}
     }
 
+    label {
+      font-family: 'Domine', serif;
+    }
+
     .hello {
       display:flex;
       justify-content: center;
+      margin:20px;
     }
 
     .hello > p {
       margin:10px;
+      font-family: 'Domine', serif;
+      font-weight: bold;
     }
 
     .flex-image {
@@ -94,15 +102,16 @@
     }
 
     .transform {
-      -webkit-transition: all 2.5s ease-in-out;
-  -moz-transition: all 2.5s ease-in-out;
-  -ms-transition: all 2.5s ease-in-out;
-  -o-transition: all 2.5s ease-in-out;
-    transition:all 2.5s ease-in-out;
+    -webkit-transition: all 2.5s ease-in-out;
+    -moz-transition: all 2.5s ease-in-out;
+    -ms-transition: all 2.5s ease-in-out;
+    -o-transition: all 2.5s ease-in-out;
+      transition:all 2.5s ease-in-out;
     /*transition-duration:1s;*/
     left:0px;
     position:relative;
     width:333px;
+    border-radius: 60px;
     }
 
     .transform-second {
@@ -114,6 +123,7 @@
     right:0px;
     position:relative;
     width:333px;
+    border-radius: 60px;
     }
 
     .transform.playing {
@@ -123,6 +133,19 @@
     .transform-second.playsecond {
       right:300px;
     }
+    .card {
+      text-align:center;
+      font-family: 'Domine', serif;
+    }
+    h3 {
+      opacity:0;
+      transition:opacity 4.5s ease-in-out;
+    }
+
+    .display {
+      opacity:1;
+     }
+
 
   </style>
   <div class="container">
@@ -143,9 +166,15 @@
     </div>
 
     <img class="first-image" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
-    <div class="flex-image">
-      <img class="transform" src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=333&q=80"/>
-      <img class="transform-second" src="https://images.unsplash.com/photo-1546146830-2cca9512c68e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" />
+    <div class="flex-image" style="margin-top:15px;">
+      <div class="card">
+        <img class="transform" src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=333&q=80"/>
+        <h3 style="margin-left:50%">Check our bootcamp</h3>
+      </div>
+      <div class="card">
+        <img class="transform-second" src="https://images.unsplash.com/photo-1546146830-2cca9512c68e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" style="height:500px"/>
+        <h3 style="margin-right:50%">What will you able to achieve with only 9 weeks</h3>
+      </div>
   </div>
   </div>
 
@@ -170,12 +199,14 @@
       const clientHeight = document.documentElement.clientHeight;
       const firstImage = document.querySelector('.transform');
       const secondImage = document.querySelector('.transform-second');
+      const h3 = document.querySelectorAll('h3');
       const pageYOffset =window.pageYOffset;
       const scrollY = window.scrollY;
      const innerHeight =window.innerHeight;
      if(scrollY > 410) {
       firstImage.classList.add('playing');
       secondImage.classList.add("playsecond");
+      h3.forEach(h => h.setAttribute("class","display"));
       // secondImage.style.right="300px";
      }
 
