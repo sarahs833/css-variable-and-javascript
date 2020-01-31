@@ -94,23 +94,34 @@
     }
 
     .transform {
-    transition:all 4s;
+      -webkit-transition: all 2.5s ease-in-out;
+  -moz-transition: all 2.5s ease-in-out;
+  -ms-transition: all 2.5s ease-in-out;
+  -o-transition: all 2.5s ease-in-out;
+    transition:all 2.5s ease-in-out;
+    /*transition-duration:1s;*/
+    left:0px;
     position:relative;
     width:333px;
     }
 
     .transform-second {
-    transition:all 4s;
+    -webkit-transition: all 2.5s ease-in-out;
+    -moz-transition: all 2.5s ease-in-out;
+    -ms-transition: all 2.5s ease-in-out;
+    -o-transition: all 2.5s ease-in-out;
+    transition:all 2.5s  ease-in-out;
+    right:0px;
     position:relative;
     width:333px;
     }
 
-    .playing {
-      left:100px;
+    .transform.playing {
+      left:300px;
     }
 
-    .playsecond {
-      right:100px;
+    .transform-second.playsecond {
+      right:300px;
     }
 
   </style>
@@ -154,25 +165,27 @@
     const inputs = document.querySelectorAll("input")
     inputs.forEach(input => input.addEventListener("change", handleChange));
 
-    function getDocHeight() {
-    var D = document;
-    return Math.max(
-        D.body.scrollHeight, D.documentElement.scrollHeight,
-        D.body.offsetHeight, D.documentElement.offsetHeight,
-        D.body.clientHeight, D.documentElement.clientHeight
-    )
-}
 
-const getHeight = getDocHeight();
     handleScroll = (e) => {
       const clientHeight = document.documentElement.clientHeight;
       const firstImage = document.querySelector('.transform');
       const secondImage = document.querySelector('.transform-second');
-      console.log("getHeight",window.pageYOffset);
-      console.log("innerHeight",window.innerHeight);
+      const pageYOffset =window.pageYOffset;
+      const scrollY = window.scrollY;
+     const innerHeight =window.innerHeight;
+     if(scrollY > 410) {
+      firstImage.classList.add('playing');
+      secondImage.classList.add("playsecond");
+      // secondImage.style.right="300px";
+     }
+
+      // if(window.innerHeight-window.scrollY < "0px") {
+      //   firstImage.classList.add('playing')
+      // }
 
     }
     window.addEventListener("scroll",handleScroll)
+
 
   </script>
 </body>
